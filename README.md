@@ -1,8 +1,6 @@
 # socketio-chat
-Socket.io implementation of a chat
+Socket.io POC implementation of a chat
 
-
-A socket.io POC implementation
 
 You can clone and run it by pasting the command below in your CLI:
 
