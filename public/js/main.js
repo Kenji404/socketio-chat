@@ -3,8 +3,6 @@ const chatMessages = document.querySelector('.chat-messages');
 const roomName = document.getElementById('room-name');
 const userList = document.getElementById('users');
 
-// Get username and room from URL
-
 const { username, room } = Qs.parse(location.search, {
     ignoreQueryPrefix: true
 });
@@ -39,7 +37,7 @@ chatForm.addEventListener('submit', (event) => {
     // Get text message
     const msg = event.target.elements.msg.value;
 
-    // Emite message to server
+    // Emit message to server
     socket.emit('chatMessage', msg);
 
     // Clear text input

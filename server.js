@@ -14,7 +14,7 @@ const io = socketio(server);
 // Set static public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-const botName = '(Bot) Luisa Mel';
+const botName = '(Bot)';
 
 // Run when cliente connects
 io.on('connection', socket => {
@@ -26,14 +26,14 @@ io.on('connection', socket => {
         socket.join(user.room);
 
         // Welcome current user
-        socket.emit('message', formatMessage(botName, 'Bem-vindo cachorro.'));
+        socket.emit('message', formatMessage(botName, 'Welcome.'));
 
         // Broadcast when user connects
         socket.broadcast
             .to(user.room)
             .emit(
                 'message',
-                formatMessage(botName, `${username} chegou rosnando.`
+                formatMessage(botName, `${username} entered the chat.`
                 ));
 
 
@@ -57,7 +57,7 @@ io.on('connection', socket => {
         const user = userLeave(socket.id);
 
         if (user) {
-            io.to(user.room).emit('message', formatMessage(botName, `${user.username} mijou no canto e saiu.`));
+            io.to(user.room).emit('message', formatMessage(botName, `${user.username} exits.`));
             // Send users and room info
             io.to(user.room).emit('roomUsers', {
                 room: user.room,
