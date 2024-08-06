@@ -1,5 +1,5 @@
-# socketio-chat
-Socket.io POC implementation of a chat
+# Node + Socket.io chat
+A chat webapp using Node.JS and Socket.io
 
 
 You can clone and run it by pasting the command below in your CLI:
